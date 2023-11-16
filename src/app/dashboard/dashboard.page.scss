@@ -1,0 +1,190 @@
+.bg-transparent {
+  --ion-background-color: transparent;
+  --background: rgba(50, 0, 74, 1);
+  --ion-item-background: transparent;
+  color: #E9E9F4;
+}
+
+.label-Avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.avatar-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+ion-spinner {
+  --color: #54dc98;
+}
+
+#contentbg {
+  --ion-background-color: #450265;
+  border-radius: 40px 40px 0px 0px;
+  overflow: hidden
+}
+
+.avater {
+
+  padding-top: 10%;
+  padding-bottom: 5%;
+  --border-style: 0px;
+
+  ion-avatar {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+.label-Avatar {
+  margin: auto;
+
+  ion-label {
+    --border-style: 0px;
+  }
+
+}
+
+.label-img {
+  margin-top: 10px;
+}
+
+.row1 {
+  margin-top: 12%;
+  margin-bottom: 15%;
+  text-align: center;
+
+  ion-img {
+    margin-bottom: 10px;
+    // height: 100px;
+
+  }
+
+  ion-col {
+    padding: 0%;
+  }
+
+  ion-item {
+    margin: 0%;
+    --border-style: 0px;
+  }
+}
+
+.card {
+  margin: 0%;
+  --ion-card-background: #E9E9F4;
+  text-align: center;
+
+  ion-img {
+    height: 80px;
+  }
+
+  ion-card-header {
+    padding: 0px
+  }
+
+  ion-card-content {
+    padding: 5px;
+  }
+
+}
+
+#item {
+  --background: rgba(86, 12, 105, 1);
+  --border-radius: 10px;
+  margin-bottom: 5%;
+  margin-left: 7%;
+  margin-right: 7%;
+
+  opacity: 50%;
+  color: #E9E9F4;
+
+}
+
+ion-tab-bar {
+  margin-bottom: 8%;
+  --background: #E9E9F4;
+  border-radius: 93px;
+  background: transparent;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+ion-tabs {
+  background: transparent;
+}
+
+.contentbg {
+  border-radius: 10px;
+
+  ion-card {}
+
+}
+.card {
+  z-index: 2;
+}
+#cardcolor {
+
+  --ion-card-background: #717189;
+  margin-top: 5%;
+
+  ion-card-content {
+    color: #fffcff
+  }
+
+
+}
+
+ion-card-content {
+  color: #93278F
+}
+
+* {
+  color: #fffcff
+}
+
+ion-badge {
+  font-size: large;
+  margin-left: 5%;
+  background-color: #93278F;
+  --padding-end: 20px;
+  --padding-start: 20px;
+
+}
+
+/////////////////media//////////////////////////////
+@media (max-height: 667px) {
+  #contentbg ion-grid {
+
+    margin-top: 0%;
+
+  }
+
+  .row1 {
+    margin-top: 3%;
+    margin-bottom: 5%;
+  }
+
+  .avater {
+    padding: auto;
+  }
+}
+
+
+@media (min-height: 834px) {
+  .row1 {
+    margin-top: 15%;
+    margin-bottom: 20%;
+  }
+
+  .avater {
+    padding-top: 16%;
+    padding-bottom: 13%;
+  }
+}

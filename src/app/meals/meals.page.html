@@ -1,0 +1,147 @@
+<ion-header [translucent]="true" id="header">
+  <ion-toolbar class="bg-transparent toolbar">
+    <ion-grid>
+      <ion-row style="position: relative">
+        <ion-col style="display: flex; justify-content: center">
+          <h4>Lets go cook</h4>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-img
+            routerLink="../dashboard"
+            src="assets/icon/Back.png"
+            id="icon-size"
+          ></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="bg-transparent" scroll-y="false">
+  <ion-content [fullscreen]="false" class="trn conheight" scroll-y="false">
+    <ion-grid class="grid">
+      <ion-row>
+        <ion-col>
+          <ion-card class="card" routerLink="/mealcategory/3">
+            <ion-card-header>
+              <ion-img
+                class="img1"
+                src="assets/icon/Vegan.png"
+                alt="vegan"
+              ></ion-img>
+            </ion-card-header>
+            <!-- router problem -->
+            <ion-card-content>Vegan</ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card class="card" routerLink="/mealcategory/2">
+            <ion-card-header>
+              <ion-img
+                class="img1"
+                src="assets/icon/Fish.png"
+                alt="fish"
+              ></ion-img>
+            </ion-card-header>
+
+            <ion-card-content>Pescatarian</ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card class="card" id="cardcolor" routerLink="../mealcategory/5">
+            <ion-card-header>
+              <ion-img
+                class="img1"
+                src="assets/icon/Meat.png"
+                alt="meat"
+              ></ion-img>
+            </ion-card-header>
+
+            <ion-card-content>Meat</ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card class="card" id="cardcolor" routerLink="../mealcategory/4">
+            <ion-card-header>
+              <ion-img
+                class="img1"
+                src="assets/icon/Salad.png"
+                alt="salad"
+              ></ion-img>
+            </ion-card-header>
+
+            <ion-card-content>Salad</ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="title-line">
+        <ion-col><ion-item>Latest Meals</ion-item></ion-col>
+        <ion-col><ion-item id="item-right" routerLink="../mealcategory/1">All</ion-item></ion-col>
+      </ion-row>
+
+      <!-- <ion-row > -->
+        <swiper-container class="row1" [slidesPerView]="2.2" >
+
+          <swiper-slide *ngFor="let Meals of lastMeals">
+            <ion-card class="mt-2" [routerLink]="'mealrecipe/' + Meals.id">
+              <ion-img
+                alt="Silhouette of mountains"
+                src="{{Meals.img_url}}"
+              ></ion-img>
+
+              <ion-card-content style="text-align: center;">
+                <h4 style="color: black;margin: auto;">{{Meals.name}}</h4>
+                
+              </ion-card-content>
+            </ion-card>
+
+          </swiper-slide>
+         
+          
+         
+        </swiper-container>
+      <!-- </ion-row> -->
+      
+    </ion-grid>
+  </ion-content>
+
+  <ion-tabs class="tabs">
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          routerLink="../dashboard"
+          src="assets/icon/home.png"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          src="assets/icon/chart.png"
+          routerLink="../progress"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          src="assets/icon/Deadlift.png"
+          routerLink="../workoutcategory"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          routerLink="../profile"
+          src="assets/icon/profile.png"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

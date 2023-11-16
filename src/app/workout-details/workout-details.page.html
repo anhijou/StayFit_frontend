@@ -1,0 +1,83 @@
+<ion-header [translucent]="true" id="header">
+  <ion-toolbar class="bg-transparent toolbar">
+    <ion-grid>
+      <ion-row style="position: relative">
+        <ion-col style="display: flex; justify-content: center">
+          <h4>Workouts</h4>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-img
+           routerLink="../.."
+            src="assets/icon/Back.png"
+            id="icon-size"
+          ></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content"  overflow-scroll="true">
+  <ion-title style="text-align: center; margin-top: 5%;">{{title}}</ion-title>
+  <ion-list [scrollEvents]="true" >
+    <ion-card class="card1"  >
+      <ion-card-header  >
+        <iframe   height="300px" [src]="getSanitizedImageUrl()">  
+        </iframe>
+      </ion-card-header>
+      
+    </ion-card>
+    <ion-row>
+      <ion-col>
+        <ion-card class="card2" >
+        <ion-row>
+       
+          <ion-col size="auto" class="col" >
+          
+            <button >
+              <ion-icon  name="time-outline"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col>
+              <ion-card-title style="font-size: 10px;">Time</ion-card-title>
+                <ion-card-title>{{time}} Min</ion-card-title>
+          </ion-col>
+
+        </ion-row>
+      </ion-card>
+      </ion-col>
+      <ion-col >
+        <ion-card class="card2">
+          <ion-row >
+       
+            <ion-col size="auto" class="col">
+            
+              <button >
+                <ion-icon  name="barbell-outline"></ion-icon>
+              </button>
+            </ion-col>
+            <ion-col>
+                <ion-card-title style="font-size: 10px;">Type</ion-card-title>
+                <ion-card-title *ngIf="type!=1">home</ion-card-title>
+                <ion-card-title *ngIf="type===1">gym</ion-card-title>
+
+            </ion-col>
+  
+          </ion-row>
+        </ion-card>
+      </ion-col>
+      
+    </ion-row>
+    <ion-card-content >
+
+      {{description}}
+      
+      </ion-card-content>
+  </ion-list>
+
+</ion-content>
+
+
+

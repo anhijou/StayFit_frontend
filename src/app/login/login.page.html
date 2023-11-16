@@ -1,0 +1,97 @@
+<ion-content scroll-y="false" [fullscreen]="true">
+  <ion-text id="title"><h5>SIGN IN TO YOUR ACCOUNT</h5></ion-text>
+  <ion-img
+    class="img1"
+    src="assets/img/logo1b.png"
+    alt="The Wisconsin State Capitol building in Madison, WI at night"
+  ></ion-img>
+  <ion-form id="container" [formGroup]="UserLoginForm">
+    <ion-item id="item">
+      <ion-label position="stacked" class="ion-label-size" floating></ion-label>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-input
+        formControlName="email"
+        type="email"
+        labelPlacement="stacked"
+        aria-label="Email"
+        required
+      ></ion-input>
+      <ion-label
+        style="color: red; padding-top: 0.2rem"
+        *ngIf="UserLoginForm.get('email')?.invalid && UserLoginForm.get('email')?.touched"
+      >
+        Email is required
+      </ion-label>
+    </ion-item>
+    <ion-item id="item">
+      <ion-label position="stacked" class="ion-label-size" floating></ion-label>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-input
+        formControlName="password"
+        type="password"
+        labelPlacement="stacked"
+        aria-label="Password"
+        required
+      ></ion-input>
+      <ion-label
+        style="color: red; padding-top: 0.2rem"
+        *ngIf="UserLoginForm.get('password')?.invalid && UserLoginForm.get('password')?.touched">
+        Password is required
+      </ion-label>
+    </ion-item>
+
+    <ion-item id="href">
+      <ion-label class="forgot-password-label"
+        ><a routerLink="../forgetpassword">Forget Password?</a>
+      </ion-label>
+    </ion-item>
+
+    <ion-row>
+      <ion-col id="container">
+        <ion-button expand="block" class="custom-button" (click)="login()"
+          >SIGN IN</ion-button
+        >
+
+        <ion-button
+          [href]="authUrl"
+          expand="block"
+          class="login-with-google-btn"
+        >
+          <img
+            width="20px"
+            style="margin-top: 2px; margin-right: 8px"
+            alt="Google sign-in"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+          />
+          Sign Up With Google
+        </ion-button>
+        <ion-label class="signup-label"
+          >Don't have an account?
+          <a routerLink="../register">Sign up here</a></ion-label
+        >
+      </ion-col>
+    </ion-row>
+  </ion-form>
+  <ion-footer class="custom-footer">
+    <ion-img class="img2" src="assets/img/joj.png" alt="night"></ion-img>
+  </ion-footer>
+</ion-content>
+
+<ion-modal [isOpen]="isModalOpenError" id="mod">
+  <ng-template>
+    <ion-card>
+      <ion-img
+        alt="Silhouette of mountains"
+        src="assets/img/warning.png"
+      ></ion-img>
+      <ion-card-header>
+        <ion-card-title>Something Wrong</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{Alertmessage}}
+      </ion-card-content>
+
+      <ion-button (click)="setOpenError(false)">Try Again</ion-button>
+    </ion-card>
+  </ng-template>
+</ion-modal>

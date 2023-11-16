@@ -1,0 +1,154 @@
+.bg-transparent{
+    --ion-background-color: rgba(50, 0, 74, 1);
+    --background:rgba(50, 0, 74, 1);
+    --ion-item-background:rgba(50, 0, 74, 1);
+    ion-content {
+        border-radius: 40px 40px 0px 0px;
+
+    }
+}
+
+.toolbar {
+    --border-style:0px;
+    margin: 0%;
+    --background: transparent;
+    ion-col {
+        position: absolute; 
+        left: 0; 
+        top: 50%;
+         transform: translateY(-50%);
+    }
+
+    ion-title{
+        margin-top: 15%;
+        margin-right: 10%;
+        text-align: center;
+        font-size: 30px;
+    }
+}
+
+#item1 {
+    ion-img{
+        margin: auto;
+        margin-top: 7%;
+        margin-bottom: 7%;
+    }
+    --border-style:0px;
+    --ion-item-background:rgba(50, 0, 74, 1);
+    
+}
+
+
+ion-list {
+    background-color:  transparent;
+    padding-top: 0;
+   
+
+}
+ion-header {
+    background-color:  #622C75;
+}
+
+
+.row1 {
+    ion-title{
+        text-align: center;
+        margin-top: 5%;
+        ion-badge {
+            background-color: #412c6c;
+            font-size: 22px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 40px ;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    }
+    background-color:  #622C75;
+    border-style: none;
+    border-bottom: none;
+    ion-item {
+
+        // margin-right: 10%;
+                width: 80%;
+        // margin-top: 0;
+        border-radius: 50px;
+        margin: auto;
+        background: #412c6c;
+        padding: 0;
+      }
+      ion-input {
+        height: 25px; 
+        padding: 0;
+      }
+      border-radius: 40px 40px 0px 0px;
+}
+
+
+
+#row2 {
+  
+    ion-card-header {
+        margin: 0%;
+        padding: 5px;
+        
+    }
+    ion-card-content {
+        color: #010000;
+        font-weight: bold;
+        padding: 10px;
+    }
+    ion-card {
+        border-radius: 10%;
+        background: #BFBFF5;
+        text-align: center;
+        margin: 5%;
+        height: 210px;
+        
+    }
+
+    
+}
+
+img {
+
+    border-radius: 10%;
+  }
+
+*{
+    color:#fffcff
+    }
+    
+@media (max-width: 375px) {
+
+    #row2 {
+        ion-card-content {
+           font-size: 10px;
+           text-align: center;
+        }
+        
+        
+    }
+  }
+
+
+  ion-input {
+
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 0;
+    border-radius: 20px;
+    margin: 5px;
+  }
+
+  .contentin {
+    --background: #622C75;
+    overflow: hidden;
+
+  }
+
+  .grid1{
+    background-color:  rgba(50, 0, 74, 1);
+    padding: 0;
+    bottom: 0;
+  }

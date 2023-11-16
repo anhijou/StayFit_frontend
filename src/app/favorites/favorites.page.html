@@ -1,0 +1,60 @@
+<ion-header [translucent]="true" id="header">
+  <ion-toolbar class="bg-transparent toolbar">
+    <ion-grid>
+      <ion-row style="position: relative">
+        <ion-col style="display: flex; justify-content: center">
+          <h4>Favorites</h4>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-img
+           routerLink="/dashboard"
+            src="assets/icon/Back.png"
+            id="icon-size"
+          ></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   
+  </ion-toolbar>
+  <ion-grid  class="grid1">
+
+    <ion-grid class="row1">
+        <ion-item class="search" lines="none" >
+      <ion-input  type="text"   placeholder="search"  
+      class="form-control " [(ngModel)]="searchTerm" (keyup)="search()"></ion-input>
+      <ion-icon name="search" slot="end" ></ion-icon>
+    </ion-item>
+  </ion-grid>
+</ion-grid>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content">
+  <ion-row *ngFor="let favorite of favoriteList">
+    <ion-card class="card2">
+      <ion-row >
+   
+        <ion-col size="4" class="col"  routerLink="workoutdetails/{{favorite.id}}">
+        
+         
+            <img  class="img" src="{{favorite.img_url}}" />
+         
+        </ion-col>
+        <ion-col  routerLink="workoutdetails/{{favorite.id}}" >
+            <ion-card-title class="title">{{favorite.name}}</ion-card-title>
+            <ion-card-title style="font-size: 15px;">Time: 30 min</ion-card-title>
+            <ion-card-title style="font-size: 15px;" *ngIf="favorite.only_gym">Type: gym</ion-card-title>
+            <ion-card-title style="font-size: 15px;" *ngIf="!favorite.only_gym">Type: home</ion-card-title>
+
+
+        </ion-col>
+        <ion-col size="2" class="col">
+        
+         
+          <ion-icon style="color: aliceblue;" name="remove-circle-outline" (click)="deleteFavorite(favorite.id)"></ion-icon>
+       
+      </ion-col>
+
+      </ion-row>
+    </ion-card>
+</ion-row>
+</ion-content>

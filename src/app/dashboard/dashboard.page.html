@@ -1,0 +1,151 @@
+<ion-content class="bg-transparent" [fullscreen]="true" scroll-y="false">
+  <ion-item class="bg-transparent avater">
+    <ion-avatar slot="start" class="label-Avatar">
+      <img
+        alt="img"
+        [src]="datauserprofileimage.profile_image"
+        (load)="isLoadingImage = false"
+        (error)="isLoadingImage = false"
+        [hidden]="isLoadingImage"
+      />
+      <ion-spinner *ngIf="isLoadingImage"></ion-spinner>
+    </ion-avatar>
+    <ion-badge slot="start">{{name}}</ion-badge>
+  </ion-item>
+
+  <ion-content id="contentbg" scroll-y="false">
+   
+    <ion-grid>
+      <ion-row class="row1">
+        <ion-col routerLink="/workoutcategory">
+          <ion-item>
+            <ion-img
+              class="img1"
+              src="assets/img/workouts.png"
+              alt="workouts"
+            ></ion-img>
+          </ion-item>
+          <ion-label class="label-img">Workouts</ion-label>
+        </ion-col>
+
+        <ion-col routerLink="/meals">
+          <ion-item>
+            <ion-img
+              class="img1"
+              src="assets/img/meals.png"
+              alt="Meals"
+            ></ion-img>
+          </ion-item>
+          <ion-label class="label-img">Meals</ion-label>
+        </ion-col>
+
+        <ion-col routerLink="/progress">
+          <ion-item>
+            <ion-img
+              class="img1"
+              src="assets/img/progress.png"
+              alt="Progress"
+            ></ion-img>
+          </ion-item>
+          <ion-label class="label-img">Progress</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card class="card" >
+            <ion-card-header>
+              <ion-img
+              routerLink="/favorites"
+                class="img1"
+                src="assets/icon/Heart.png"
+                alt="Progress"
+              ></ion-img>
+            </ion-card-header>
+
+            <ion-card-content>Favorites</ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card class="card">
+            <ion-card-header>
+              <ion-img
+                class="img1"
+                routerLink="/videoroom"
+                src="assets/icon/VideoCall.png"
+                alt="Progress"
+              ></ion-img>
+            </ion-card-header>
+
+            <ion-card-content>Train with freind</ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card class="card" id="cardcolor">
+            <ion-card-header>
+              <ion-img
+              
+                class="img1"
+                src="assets/icon/plan.png"
+                alt="Progress"
+              ></ion-img>
+            </ion-card-header>
+
+            <ion-card-content>Coming soon</ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card class="card" id="cardcolor">
+            <ion-card-header>
+              <ion-img
+                class="img1"
+                src="assets/icon/Shop.png"
+                alt="Progress"
+              ></ion-img>
+            </ion-card-header>
+
+            <ion-card-content>Coming soon</ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+  <ion-tabs class="tabs">
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          routerLink="/dashboard"
+          src="assets/icon/home.png"
+          alt="dashboard"
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          src="assets/icon/chart.png"
+          routerLink="/progress"
+          alt="chart"
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          src="assets/icon/Deadlift.png"
+          routerLink="/workoutcategory"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          routerLink="/profile"
+          src="assets/icon/profile.png"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

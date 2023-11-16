@@ -1,0 +1,225 @@
+<ion-content class="bg-transparent" *ngIf="pageCondition1==false" scroll-y="false"  [fullscreen]="false" id="content">
+  <ion-grid class="gridtop">
+    <ion-item class="item-current-target">
+      <ion-text class="text-target">Current</ion-text>
+      <ion-label slot="end" class="text-target"> Target Weight </ion-label>
+    </ion-item>
+    <ion-item class="item-current-target">
+    
+      <ion-badge slot="start">
+        {{ current_weight }} Kg
+      </ion-badge>
+     
+      <ion-badge slot="end">{{target_weight}} Kg</ion-badge>
+    </ion-item>
+
+  
+      <!-- <ion-card class="card">
+        <ion-card-content class="canvas">
+        
+          <ion-grid class="spinner-container">
+            <ion-row justify-content-center align-items-center>
+              <ion-col>
+                <ion-spinner class="spinner-center"  *ngIf="isLoadingCanvas"></ion-spinner>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <canvas #lineCanvas [hidden]="!isLoadingCanvas"></canvas>
+        </ion-card-content>
+      </ion-card> -->
+
+      <ion-card class="card">
+        <ion-card-content class="canvas">
+        
+      
+          <canvas #lineCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+   
+    
+   
+
+    <ion-card class="color-bg" id="card2">
+      <ion-card-header>
+        <ion-card-title class="progress-title">Journal  : {{ titleGoalName   }}  </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content >
+        <ng-container *ngIf="isLoadingData; else journalItems" class="spinner-container">
+          <ion-grid class="spinner-container">
+            <ion-row justify-content-center align-items-center>
+              <ion-col>
+                <ion-spinner class="spinner-center"></ion-spinner>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ng-container>
+        <ng-template #journalItems>
+        <ion-item *ngFor="let item of journalData" class="color-bg">
+          <ion-text class="text-day">{{ item.created_at | date:'yyyy-MM-dd' }}</ion-text>
+          <ion-label slot="end" class="text-day">{{ item.weight }}kg</ion-label>
+        </ion-item>
+      </ng-template>
+<ion-row>
+  <ion-col size="6">
+    <ion-button
+    class="custom-button"
+    expand="block"
+    id="present-alert">
+    <h5>Update Weight</h5>
+    <!-- <ion-icon name="scale" slot="start"></ion-icon>
+    <ion-icon name="add-circle-outline"></ion-icon> -->
+    </ion-button>
+
+  </ion-col>
+  <ion-col size="6">
+  
+<ion-button
+class="custom-button"
+expand="block"
+ (click)="setOpen(true)">
+ <h5>Progress History</h5>
+ <!-- <ion-icon name="eye-outline"></ion-icon>
+<ion-icon name="search-outline" slot="end"></ion-icon> -->
+</ion-button>
+</ion-col>
+</ion-row>
+        
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>All Progress History</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item *ngFor="let item of journalDataAll" class="color-bg">
+        <ion-text class="text-day">{{ item.created_at | date:'yyyy-MM-dd' }}</ion-text>
+        <ion-label slot="end" class="text-day">{{ item.weight }}kg</ion-label>
+      </ion-item>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+
+        <ion-alert
+  trigger="present-alert"
+  header="Please enter your Weight"
+  [buttons]="alertButtons"
+  [inputs]="alertInputs"
+></ion-alert>
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+  <ion-tabs class="tabs">
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          routerLink="/dashboard"
+          src="assets/icon/home.png"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          src="assets/icon/chart.png"
+          routerLink="/progress"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          src="assets/icon/Deadlift.png"
+          routerLink="/workoutcategory"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          routerLink="/profile"
+          src="assets/icon/profile.png"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
+
+<!------------------------- CHOOSE YOUR PLAN--------------------------------------- -->
+<ion-content  *ngIf="pageCondition1==true" [fullscreen]="true" scroll-y="false">
+  <ion-text id="title"><h5>CHOOSE YOUR NEW PLAN</h5></ion-text>
+
+  <ion-list class="bg-transparent">
+    <ion-item
+      class="item-Button"
+      (click)="setGoal(goal.id)"
+      *ngFor="let goal of goals "
+    >
+    
+      <div class="input-content">
+      
+        <div class="title"><h3>{{ goal.name }}</h3></div>
+        <div class="text">{{ goal.description }}</div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-modal [isOpen]="isModalOpenchangeGoal" class="mod" backdropDismiss="false" >
+  <ng-template>
+    <ion-card>
+      <ion-img
+        alt="Silhouette of mountains"
+        src="assets/img/guy.png"
+      ></ion-img>
+      <ion-card-header>
+        <ion-card-title class="titlemod">New Challenge Started</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+       
+       
+          <ion-label position="floating" class="custom-label">New Goal</ion-label>
+          <ion-input type="text" [(ngModel)]="newGoal" class="custom-input"></ion-input>
+        
+         
+      </ion-card-content>
+      
+      <ion-button (click)="RegistrationComplete()">Get fit Again</ion-button>
+    </ion-card>
+
+  </ng-template>
+</ion-modal>
+
+
+
+<ion-modal [isOpen]="alertSuccessMessage" class="mod" backdropDismiss="false" >
+  <ng-template>
+    <ion-card>
+      <ion-img
+        alt="Silhouette of mountains"
+        src="assets/img/guy.png"
+      ></ion-img>
+      <ion-card-header>
+        <ion-card-title class="titlemod">Congrats!</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+       
+       You have Reached Your Goal  : <span style="font-weight: bold;color:black;">{{titleGoalName}} </span> , chose an other goal now !
+  
+         
+         
+      </ion-card-content>
+      
+      <ion-button (click)="hideModal()">Chose New Goals</ion-button>
+    </ion-card>
+
+  </ng-template>
+</ion-modal>

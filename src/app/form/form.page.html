@@ -1,0 +1,205 @@
+<ion-content class="bg-transparent" [fullscreen]="true" scroll-y="false">
+  <ion-form [formGroup]="userDataForm" class="bg-transparent">
+
+
+    <!-- ---------------------CHOOSE YOUR GENDER----------------------------------------- -->
+    <ion-content
+      *ngIf="pageCondition1==0"
+      class="form-content content-center"
+      [fullscreen]="true"
+      scroll-y="false"
+    >
+      <ion-text id="title"><h5>CHOOSE YOUR GENDER</h5></ion-text>
+      <ion-list class="bg-transparent">
+        <ion-radio-group value="option1" formControlName="gender">
+          <ion-item
+            class="circular-item"
+            [ngClass]="{'item-radio-checked': radioValue === 'female-'}"
+          >
+            <div class="radio-button">
+              <div class="icon-wrapper">
+                <ion-img src="assets/img/Female.png" alt=""></ion-img>
+              </div>
+              <div class="label-wrapper">
+                <ion-label>Female</ion-label>
+              </div>
+              <ion-radio slot="start" value="female"></ion-radio>
+            </div>
+          </ion-item>
+
+          <ion-item
+            class="circular-item"
+            [ngClass]="{'item-radio-checked': radioValue === 'male'}"
+          >
+            <div class="radio-button">
+              <div class="icon-wrapper">
+                <ion-img src="assets/img/Male.png" alt=""></ion-img>
+              </div>
+              <div class="label-wrapper">
+                <ion-label>Male</ion-label>
+              </div>
+              <ion-radio slot="start" value="male"></ion-radio>
+            </div>
+          </ion-item>
+        </ion-radio-group>
+        <ion-label
+          class="title"
+          style="color: #c94c4c; padding-top: 0.2rem ; text-align: center; display: block;"
+          *ngIf=" changePageClicked  && (userDataForm.get('gender')?.touched || !userDataForm.get('gender')?.value) "
+        >
+          Gender is required
+        </ion-label>
+
+
+        <ion-button
+          expand="block"
+          (click)="changePage('gender'); changePageClicked = true"
+          class="custom-button"
+          >Next</ion-button
+        >
+
+       
+      </ion-list>
+    </ion-content>
+    <!-- ---------------CHOOSE YOUR DATA ------------------------->
+    <ion-content *ngIf="pageCondition1==1" id="container" scroll-y="false">
+      <ion-text id="title"><h5>CHOOSE YOUR DATA</h5></ion-text>
+      <div>
+        <ion-img
+          class="img1"
+          src="assets/img/formp2.png"
+          alt="The Wisconsin State Capitol building in Madison, WI at night"
+        ></ion-img>
+      </div>
+
+      <ion-item id="item">
+        <ion-label position="fixed" class="content-center">Your Age</ion-label>
+        <ion-input
+          type="date"
+          formControlName="date_of_birth"
+          (ionFocus)="showErrordate = false"
+          labelPlacement="floating"
+         
+          required
+        ></ion-input>
+        
+        <span
+          style="color: #c94c4c; padding-top: 0.2rem"
+          *ngIf="(showErrordate && (userDataForm.get('date_of_birth')?.touched && userDataForm.get('date_of_birth')?.invalid  && !userDataForm.get('date_of_birth')?.value))|| (showErrordate && userDataForm.get('date_of_birth')?.value === '') "
+        >
+        Date of birth
+        </span>
+      </ion-item>
+
+      <ion-item id="item">
+        <ion-label position="fixed" class="content-center"
+          >Weight (Kg)</ion-label
+        >
+        <ion-input
+          type="number"
+          formControlName="current_weight"
+          labelPlacement="floating"
+          (ionFocus)="showErrorweight = false"
+          required
+        ></ion-input>
+ 
+        
+       
+        <ion-label
+          style="color: #c94c4c; padding-top: 0.2rem"
+          *ngIf="(showErrorweight &&  (userDataForm.get('current_weight')?.touched && userDataForm.get('current_weight')?.invalid && !userDataForm.get('current_weight')?.value ) || (showErrorweight && userDataForm.get('current_weight')?.value === ''))"
+        >
+          Weight is required
+        </ion-label>
+      </ion-item>
+
+      <ion-item id="item">
+        <ion-label position="fixed" class="content-center"
+          >Height (Cm)</ion-label
+        >
+        <ion-input
+        type="number"
+          formControlName="current_height"
+          labelPlacement="floating"
+          (ionFocus)="showErrorheight = false"
+          required
+        >
+        </ion-input>
+       
+        <ion-label
+          style="color: #c94c4c; padding-top: 0.2rem"
+          *ngIf="(showErrorheight && (userDataForm.get('current_height')?.touched && userDataForm.get('current_height')?.invalid  && !userDataForm.get('current_height')?.value) ) ||(showErrorheight && userDataForm.get('current_height')?.value === '')"
+        >
+          Height is required
+        </ion-label>
+  
+      </ion-item>
+
+      <ion-item id="item">
+        <ion-label position="fixed" class="content-center"
+          >Target Weight (Kg)</ion-label
+        >
+        <ion-input
+           type="number"
+          formControlName="target_weight"
+          labelPlacement="floating"
+          (ionFocus)="showErrortarget = false"
+          required
+        ></ion-input>
+        <ion-label
+          style="color: #c94c4c; padding-top: 0.2rem"
+          *ngIf="(showErrortarget &&  (userDataForm.get('target_weight')?.touched && userDataForm.get('target_weight')?.invalid && !userDataForm.get('target_weight')?.value ))||(showErrortarget && userDataForm.get('target_weight')?.value === '')"
+        >
+          target weight is required
+        </ion-label>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        (click)="changePage('date_of_birth');changePageClicked = true; "
+        class="custom-button"
+        >Next</ion-button
+      >
+    </ion-content>
+    <!------------------------- CHOOSE YOUR PLAN--------------------------------------- -->
+    <ion-content *ngIf="pageCondition1==2" [fullscreen]="true" scroll-y="false">
+      <ion-text id="title"><h5>CHOOSE YOUR PLAN</h5></ion-text>
+
+      <ion-list class="bg-transparent">
+        <ion-item
+          class="item-Button"
+          (click)="setGoal(goal.id)"
+          *ngFor="let goal of goals "
+        >
+          <div class="input-content">
+            <div class="title"><h3>{{ goal.name }}</h3></div>
+            <div class="text">{{ goal.description }}</div>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+
+    <ion-modal [isOpen]="isModalOpen" class="mod" backdropDismiss="false" >
+      <ng-template>
+        <ion-card>
+          <ion-img
+            alt="Silhouette of mountains"
+            src="assets/img/guy.png"
+          ></ion-img>
+          <ion-card-header>
+            <ion-card-title class="titlemod">Registration Complete</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            Welcome to our StayFit App community! Get ready to embark on a
+            fitter, healthier journey with us.
+          </ion-card-content>
+          <ion-button (click)="RegistrationComplete()">Get fit now</ion-button>
+        </ion-card>
+      </ng-template>
+    </ion-modal>
+  </ion-form>
+</ion-content>
+<ion-footer>
+  <ion-img class="img" src="assets/img/joj.png" alt="night"></ion-img>
+</ion-footer>

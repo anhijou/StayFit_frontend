@@ -1,0 +1,62 @@
+<ion-header [translucent]="true" id="header">
+  <ion-toolbar class="bg-transparent toolbar">
+    <ion-grid>
+      <ion-row style="position: relative">
+        <ion-col style="display: flex; justify-content: center">
+          <h4>Workouts</h4>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-img
+           routerLink="/dashboard"
+            src="assets/icon/Back.png"
+            id="icon-size"
+          ></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   
+  </ion-toolbar>
+  <ion-grid  class="grid1">
+
+    <ion-grid class="row1">
+        <ion-item class="search" >
+      <ion-input  type="text"   placeholder="search"  
+      class="form-control " [(ngModel)]="searchTerm" (keyup)="search()"></ion-input>
+      <ion-icon name="search" slot="end" ></ion-icon>
+    </ion-item>
+  </ion-grid>
+</ion-grid>
+</ion-header>
+
+<ion-content [fullscreen]="true"  class="content">
+  
+
+ <ion-grid>
+  <ion-row *ngFor="let Workouts of WorkoutCategory">
+    <ion-card  class="card1" >
+      <ion-card-header style="padding: 5px;height: 90%;">
+        <img class="img1" src="{{Workouts.img_url}}" alt="Progress" />
+      </ion-card-header>
+      <ion-card-content >
+        <ion-row >
+        
+
+          <ion-col>
+              <ion-card-title >{{Workouts.name}} </ion-card-title>
+              <ion-card-title style="font-size: 15px;">
+                some test text here to explain
+              </ion-card-title>
+            
+           
+          </ion-col>
+
+          <ion-col size="auto" style="margin: auto; ">
+            <ion-button  routerLink="/workouts/{{Workouts.id}}" >START</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content >
+    </ion-card>
+    
+  </ion-row>
+ </ion-grid>
+</ion-content>

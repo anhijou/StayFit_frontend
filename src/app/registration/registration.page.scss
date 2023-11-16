@@ -1,0 +1,192 @@
+ion-content {
+
+    position: absolute;
+    display: flex;
+    --ion-background-color: rgba(50, 0, 74, 1);
+    justify-content: center;
+    align-items: center;
+    --offset-top: 50vh;
+    --offset-bottom: 50vh;
+
+}
+
+ion-input {
+    background: rgba(86, 12, 105, 1);
+    height: 30px;
+
+}
+
+ion-header {
+
+    --ion-background-color: transparent;
+}
+
+ion-img.img1 {
+    width: 60%;
+    /* Adjust the width percentage according to your needs */
+    height: auto;
+    margin-left: 20%;
+    margin-right: 20%;
+    // this is the space between image and the form of register
+    //   margin-bottom: 20%;
+}
+
+#item {
+
+    --background: rgba(86, 12, 105, 1);
+    --border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+   
+   
+
+}
+.errur-lable {
+        
+    margin: auto;
+}
+
+#container {
+    margin-top: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 30px;
+}
+
+#title {
+
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    --ion-toolbar-background: transparent;
+    --ion-item-background: transparent;
+
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+
+    /* Styles for screens up to 768px width */
+    #title {
+        font-size: 13px;
+        margin-bottom: 13px;
+
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    /* Styles for screens up to 480px width */
+    #title {
+        font-size: 14px;
+        margin-bottom: 13px;
+
+    }
+}
+
+#href {
+    --border-style: none;
+    --ion-item-background: transparent;
+    margin-left: auto;
+    margin-right: 30%;
+    font-size: 50px;
+}
+
+.red-icon {
+    color: rgb(236, 234, 234);
+}
+
+.custom-button {
+    --background: #93278F;
+    --border-radius: 5px;
+    font-size: large;
+    height: 40px;
+    width: 70%;
+    margin: auto;
+}
+
+ion-text {
+    color: #ffffff;
+    font-size: 25px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 50px;
+    margin-bottom: 15%;
+    //text-align: center;
+}
+
+.custom-header {
+    margin-top: 30%;
+    /* Adjust the margin value according to your preference */
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+ion-img.img2 {
+    position: absolute;
+    display: flex;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 100px;
+    width: 100%;
+    overflow: hidden;
+
+
+}
+
+.forgot-password-label {
+
+    width: 70px;
+    color: rgba(255, 255, 255, 1);
+    text-align: left;
+    top: 391px;
+    left: 56px;
+    font-family: Jaldi;
+    font-weight: Regular;
+    font-size: 13px;
+}
+
+.custom-submit {
+
+    --background: transparent;
+    border-radius: 30px;
+
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    ion-button {
+        margin-left: auto;
+        margin-right: auto;
+        --border-radius: 24px;
+        --background: #93278F;
+        width: 50%;
+        height: 100%;
+        padding-left: 1%;
+        padding-right: 1%;
+        font-size: large;
+    }
+}
+
+
+*{
+    color:#fffcff
+  }
+
+.toast-center{
+    text-align: center;
+    color: #c94c4c;
+   font-size: 10px;
+}

@@ -1,0 +1,100 @@
+<ion-header >
+  <ion-toolbar class=" toolbar">
+    <ion-grid>
+      <ion-row style="position: relative">
+        <ion-col style="display: flex; justify-content: center">
+          <h4>Workouts</h4>
+        </ion-col>
+      
+      </ion-row>
+    </ion-grid>
+   
+  </ion-toolbar>
+ 
+</ion-header>
+  
+  <ion-content fullscreen="true"  class="content">
+    <ion-row>
+      <ion-col size="12">
+    <ion-button
+    class="custom-button"
+    expand="block"
+     (click)="setOpen(true)">
+     <ion-icon name="caret-down-outline">
+                        
+     </ion-icon>
+     <!-- <ion-icon name="barbell-outline"></ion-icon> -->
+     choose workout
+    </ion-button>
+    </ion-col>
+
+    <ion-grid *ngIf="currentWorkoutid!=null" class="video" style="border-radius: 10px; margin: 5px; background: #622c75;">
+      <iframe style="border: none;" width="100%" height="250px" [src]="videourl"></iframe>
+    </ion-grid>
+    
+
+
+    <!-- <div id="workout-video-wrapper">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Jv6lwUSoEo0" ></iframe>
+    </div> -->
+    </ion-row>
+  <ion-grid style="margin-top: 2vh;">
+    <button id="join-btn" (click)="joinStream()" hidden>Join Stream</button>
+
+    <div id="stream-wrapper">
+         <div id="video-streams" ></div>
+  
+         <div id="stream-controls">
+      
+      <button id="leave-btn" (click)="leaveAndRemoveLocalStream()">Leave Stream</button>
+      <button id="mic-btn" (click)="toggleMic($event)">Mic On</button>
+      <button id="camera-btn" (click)="toggleCamera($event)">Camera On</button>
+    </div>
+  </div>
+</ion-grid>
+
+ 
+
+  </ion-content>
+
+  <ion-modal [isOpen]="isModalOpen" >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar style="--background: #622c75;">
+          <ion-title>All Workout </ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="content">
+        
+
+        <ion-list id="grid">
+          <ion-card id="item" *ngFor="let workout of Getallworkout" style="background-image: url(' {{workout.img_url}}');" >
+            <ion-row>
+              
+    
+              <ion-col>
+                <ion-item lines="none">
+                  <ion-card-title style="font-size: 15px;">30 min</ion-card-title>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-card-title>{{workout.name}}</ion-card-title>
+                </ion-item>
+              </ion-col>
+    
+              <ion-col size="2" >
+                <button (click)="choseWorkout(workout.id,workout.video_url)" style="height: 40px;width: 40px;border-radius: 10px;background: #5a1a58d5;padding: 0px;">
+                  <ion-icon style="height: 40px;width: 40px; " name="caret-forward-circle-outline"></ion-icon>
+                </button>
+            
+              </ion-col>
+              
+            </ion-row>
+          </ion-card>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal> 
+

@@ -1,0 +1,155 @@
+
+
+.signup-label {
+    width: 154px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 11px;
+    font-weight: bold;
+    opacity: 1;
+    margin-left: 20%;
+    margin-right: 20%;
+    // text-align: left;
+    margin-top: 1%;
+}
+
+.custom-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 12%;
+    text-align: center;
+    color: #555555;
+}
+
+ion-alert.custom-alert {
+
+    background-color: rgba(239, 148, 0, 0.2);
+    --border-radius: 8px;
+    --header-background-color: #93278F;
+    --message-color: #93278F;
+    --ion-background-color: #fffafa;
+    --ion-background-color-rgb: 18, 18, 18;
+    --ion-text-color: #000000;
+    --button-background: #93278F;
+    --button-border-radius: 8px;
+    --button-border-color: #EF9400;
+    //border: 2px solid #EF9400;
+}
+
+
+.login-with-google-btn {
+    transition: background-color .3s, box-shadow .3s;
+    border-radius: 30px;
+    height: 40px;
+    width: 70%;
+
+
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    //  box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+
+    color: #020202;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --background: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+
+    background-repeat: no-repeat;
+    background-position: 12px 11px;
+
+    &:hover {
+        box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
+    }
+
+    &:active {
+        background-color: #eeeeee;
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow:
+            0 -1px 0 rgba(0, 0, 0, .04),
+            0 2px 4px rgba(0, 0, 0, .25),
+            0 0 0 3px #c8dafc;
+    }
+
+    &:disabled {
+        filter: grayscale(100%);
+        background-color: #ebebeb;
+
+        box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+        cursor: not-allowed;
+    }
+}
+
+// iphone se
+@media only screen and (max-width: 375px) and (max-height: 667px) {
+
+
+
+    /* Styles for screens up to 480px width */
+    #title {
+        font-size: 14px;
+        margin-bottom: 13px;
+        margin-top: 0px;
+
+    }
+
+    ion-img.img1 {
+        display: none;
+
+    }
+
+    #item {
+
+        --background: rgba(86, 12, 105, 1);
+        --border-radius: 10px;
+        margin-bottom: 10px;
+        margin-left: 10%;
+        margin-right: 10%;
+
+        //  width: fit-content;
+
+    }
+
+    ion-label.ion-label-size {
+        height: 0px;
+        margin: 0%;
+    }
+
+    ion-icon {
+        margin: auto;
+    }
+
+    ion-input {
+
+        margin-left: 5px;
+
+    }
+
+    .custom-button {
+        height: 50px;
+        width: 70%;
+        margin: auto;
+    }
+
+    .login-with-google-btn {
+        height: 50px;
+        width: 70%;
+        margin: auto;
+        border-radius: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .signup-label {
+        margin-bottom: 30px;
+        font-weight: 100;
+    }
+
+}

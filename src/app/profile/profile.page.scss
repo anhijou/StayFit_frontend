@@ -1,0 +1,284 @@
+ion-content {
+    position: absolute;
+    display: flex;
+    --ion-background-color: rgba(50, 0, 74, 1);
+    justify-content: center;
+    align-items: center;
+    --offset-top: 50vh;
+    --offset-bottom: 50vh;
+}
+
+.help-title {
+    float: left;
+
+}
+
+ion-spinner {
+    --color: #54dc98;
+}
+
+#item {
+
+    --background: rgba(86, 12, 105, 1);
+    --border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 15%;
+
+}
+
+#mod {
+    --width: 100%;
+    --height: 100%;
+    --ion-background-color: transparent;
+    background: #7819802e;
+    --ion-toolbar-background: DarkMagenta;
+
+    ion-card-title {
+        --color: white;
+
+    }
+
+    // ion-button {
+    //     --border-radius: 30px;
+    //     --background: #93278F;
+    //     width: 61%;
+    //     padding-left: 1%;
+    //     padding-right: 1%;
+    // }
+
+    ion-img {
+        margin: 5%;
+
+
+        margin-right: 12%;
+    }
+
+    ion-content {
+        height: 100%;
+        --background: #E3E0FF;
+        --ion-background-color: transparent;
+        --color: #771980;
+
+        // justify-content: center;
+        // align-items: center;
+        // text-align: center;
+        // border-radius: 30px;
+
+        ion-card-title {
+            --color: #3E3162;
+            font-weight: bold;
+            font-size: 26px;
+
+        }
+
+        ion-content {
+            text-align: center;
+            font-weight: 500;
+            //margin: 3%;
+            // margin-top: auto;
+            // margin-bottom: auto;
+            font-size: 15px;
+            color: #403a3a;
+        }
+
+        ion-col {
+
+            margin-top: 20%;
+            margin-bottom: auto;
+        }
+
+        // ion-button {
+        //     margin-top: 8%;
+        //     --border-radius: 24px;
+        //     --background: #93278F;
+        //     width: 61%;
+        //     padding-left: 1%;
+        //     padding-right: 1%;
+        // }
+    }
+
+}
+
+#title {
+
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    --ion-toolbar-background: transparent;
+    --ion-item-background: transparent;
+
+}
+
+.test1 {
+    --background: rgb(92, 209, 205);
+}
+
+.item1 {
+
+    --background: rgba(50, 0, 74, 1);
+    --border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+#itemlogout {
+
+    --background: rgba(50, 0, 74, 1);
+    --border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+}
+
+
+ion-icon {
+    font-size: 32px;
+    /* Set the desired font size */
+}
+
+ion-input {
+    background: rgba(86, 12, 105, 1);
+    height: 30px;
+
+}
+
+
+
+ion-header {
+
+    --ion-background-color: transparent;
+}
+
+ion-avatar {
+    margin: auto;
+    margin-top: 10%;
+    width: 100px;
+    height: 100px;
+}
+
+
+
+ion-tab-bar {
+    margin-bottom: 8%;
+    --background: #E9E9F4;
+    border-radius: 93px;
+    background: transparent;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+ion-tabs {
+    background: transparent;
+}
+
+
+
+// --background: rgb(92, 209, 205);
+.modal-wrapper {
+    --backdrop-opacity: 0;
+}
+
+.modal-content {
+
+
+    background-color: DarkCyan;
+}
+
+.toolbar-background {
+    inset: 0px;
+    position: absolute;
+    transform: translateZ(0px);
+    border-width: var(--border-width);
+    border-style: var(--border-style);
+    border-color: var(--border-color);
+    background: var(--background);
+    contain: strict;
+    opacity: calc(var(--opacity) * var(--opacity-scale));
+    z-index: -1;
+    pointer-events: none;
+    --background-color: darkseagreen;
+}
+
+.modal-header {
+    --background: #E3E0FF;
+    // --background: DarkTurquoise;
+    // background-color: DarkTurquoise;
+}
+
+.help-paragraphe {
+    margin-top: 150px;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-weight: 600;
+}
+
+.help-paragraphe-inside {
+
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+.help-paragraphe-top {
+    margin-top: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+
+
+
+.block {
+    --background: rgb(92, 209, 205);
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+* {
+    color: #fffcff
+}
+
+// ion-modal>.ion-page {
+
+//     background: rgb(92, 209, 205);
+// }
+
+// iphone se
+@media only screen and (max-width: 375px) and (max-height: 667px) {
+
+    ion-avatar {
+
+        margin-top: 10px;
+    }
+
+
+    #item {
+        margin-top: 10px;
+
+    }
+
+    .item1 {
+        margin-top: 10px;
+    }
+
+
+}
+
+
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
+    display: none !important;
+}

@@ -1,0 +1,52 @@
+ <ion-header [translucent]="true" id="header">
+  <ion-toolbar class="bg-transparent toolbar">
+    <ion-grid>
+      <ion-row style="position: relative">
+        <ion-col style="display: flex; justify-content: center">
+          <h4>Lets go cook</h4>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-img
+          routerLink="../.."
+            src="assets/icon/Back.png"
+            id="icon-size"
+          ></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="bg-transparent">
+  <ion-item class="bg-transparent img1">
+    <ion-img src="{{img}}"></ion-img>
+  </ion-item>
+
+  <ion-list class="bg-transparent">
+    <ion-row>
+      <ion-col>
+        <ion-title>Directions</ion-title>
+      </ion-col>
+      <ion-col class="time">
+        <ion-title>{{time}} Min</ion-title>
+      </ion-col>
+    </ion-row>
+
+    <ion-item class="Directions">
+      {{description}}
+    </ion-item>
+
+    <ion-col>
+      <ion-title>Ingredients :</ion-title>
+    </ion-col>
+
+    <ion-grid class="ingredients">
+      <ion-item *ngFor="let ingredient of ingrediants">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        <ion-label>{{ingredient.quantity}} {{ingredient.name}}</ion-label>
+      </ion-item>
+
+      
+    </ion-grid>
+  </ion-list>
+</ion-content>

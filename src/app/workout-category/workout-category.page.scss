@@ -1,0 +1,119 @@
+#header{
+    -webkit-box-shadow: none;
+
+}
+.toolbar {
+    --border-style:0px;
+    margin: 0%;
+    --background: #622C75;
+    ion-col {
+        position: absolute; 
+        left: 0; 
+        top: 50%;
+         transform: translateY(-50%);
+    }
+
+    ion-title{
+        margin-top: 15%;
+        margin-right: 10%;
+        text-align: center;
+        font-size: 30px;
+    }
+}
+
+
+.row1 {
+    ion-title{
+        text-align: center;
+        margin-top: 5%;
+        ion-badge {
+            background-color: #412c6c;
+            font-size: 22px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 40px ;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    }
+    background-color:  #622C75;
+    border-style: none;
+    border-bottom: none;
+    ion-item {
+        width: 80%;
+        border-radius: 50px;
+        margin: auto;
+        --background: #32004a;
+        padding: 0;
+        height: 50px;
+        border-style: none;
+      }
+      ion-input {
+        height: 25px; 
+        padding: 0;
+        min-height: 20px;
+        
+      }
+      ion-col{
+        padding: 0;
+      }
+      border-radius: 0px 0px 40px 40px;
+
+}
+ion-button{
+    --border-radius: 20px;
+}
+
+img {
+    border-radius: 20px;
+}
+*{
+    color: aliceblue;
+}
+
+.content{
+    --background: #32004a;
+}
+.grid1 {
+    border-radius: 0px 0px 40px 40px;
+    padding-top: 20px;
+    background: #622C75;
+}
+.card1{
+    border-radius: 20px; 
+    display: flex; 
+    justify-content: center; 
+    position: relative;
+    background: #5a1a58;
+    ion-card-header{
+        padding: 5px;
+        height: 90%;
+    }
+    ion-card-content{
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        bottom: 0; 
+        z-index: 1; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        background: #93278F; 
+        border-radius: 20px;
+        margin: auto;
+        height: fit-content;
+        margin-bottom: 15px;
+        padding: 0;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+    ion-card-title {
+        color: aliceblue;
+        font-size: 20px;
+        padding: 5px;
+    }
+    ion-button{
+        --background: #5a1a58;
+    }
+}

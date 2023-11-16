@@ -1,0 +1,229 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar style="text-align: center;--background: #622C75;color: aliceblue;">
+    <ion-title>videoRoom</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar class=" toolbar">
+    <ion-grid>
+      <ion-row style="position: relative">
+        <ion-col style="display: flex; justify-content: center">
+          <h4>videoRoom</h4>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-img
+            routerLink="../dashboard"
+            src="assets/icon/Back.png"
+            id="icon-size"
+          ></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-center ">
+  
+   <div  class="center-div">
+
+    <div class="card">
+
+
+      <ion-row *ngIf="linkbool">
+        <h2  style="margin: auto;color: #972b93;margin-bottom: 5%;">Link to share</h2>
+        <ion-col size="12">
+          <ion-button  style="--background: #9b249785;--border-radius: 0px;margin: auto;">
+          {{ lien }}
+        </ion-button>
+        </ion-col>
+        <ion-col size="12">
+      <ion-button (click)="share()" style="margin-top: 0px;margin-bottom: 0px;--border-radius: 10px;">
+       Share
+        <ion-icon name="share-outline"  ></ion-icon>
+      </ion-button>
+      <ion-button (click)="copyToClipboard()" style="margin-top: 0px;margin-bottom: 0px;--border-radius: 10px;" >
+        copy
+        <ion-icon name="copy-outline"  ></ion-icon>
+      </ion-button>
+
+    
+    </ion-col>
+    <ion-col size="12">
+    <ion-button (click)="goTomeet()" style="margin-top: 0px;margin-bottom: 0px;--border-radius: 10px;" >
+      go to the meet
+      <ion-icon name="videocam-outline"  ></ion-icon>
+    </ion-button>
+  </ion-col>
+    </ion-row>
+
+
+
+      <ion-row *ngIf="!linkbool">
+        <ion-card-header >
+          <button>
+          <ion-img src="assets/img/room.png" style="margin: 12%; "></ion-img>
+        </button>
+    
+      
+        </ion-card-header>
+      </ion-row><ion-row>
+        <ion-card-content>
+          you join or create a room where you can exercise and work out with your friends. By joining a room, you can engage in fitness activities together, motivating and supporting each other along the way.
+        </ion-card-content>
+      </ion-row>
+        <ion-row>
+          <ion-col size="6" class="center-col">
+            <ion-button id="join" class="button-equal">
+              Join
+            </ion-button>
+          </ion-col>
+          <ion-col size="6" class="center-col">
+            <ion-button id="create" class="button-equal">
+              Create
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+</ion-content>
+
+
+
+
+<!---------------------------==============create==============--------------------------------->
+
+<ion-modal #modal trigger="create" [canDismiss]="canDismiss"  class="model">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title slot="start">Modal</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" style="--backgrand:black;">
+      <ion-card-header>
+        Create room
+      </ion-card-header>
+
+      <ion-img src="assets/img/invite.png"></ion-img>
+
+      <ion-card-content>
+        Enter your partner email to create room for you both     
+       </ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input 
+        type="email" 
+        [formControl]="emailFormControl"
+        [(ngModel)]="email"
+       
+        (ionFocus)="showerrurcreate =false"
+        ></ion-input>
+        <ion-label
+        style="color: #c94c4c; padding-top: 0.2rem"
+        *ngIf="showerrurcreate &&  emailFormControl.hasError('email') && emailFormControl.dirty"
+      >
+      email is invalid
+      </ion-label>
+      </ion-item>
+
+      <ion-button  shape="round" expand="full" (click)="createRoom()">Confirm</ion-button>
+     
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+
+
+
+<!--------------------------==============-join-==============---------------->
+<ion-modal #modal1 trigger="join" [canDismiss]="canDismiss" class="model">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title slot="start">Modal</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="modal1.dismiss()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-card-header>
+        Join a room
+      </ion-card-header>
+      <div>
+        
+        <ion-img src="assets/img/link.png"></ion-img>
+        <ion-card-content>
+          Enter the Link that your partner send to you      
+         </ion-card-content>
+     
+      </div>
+      <ion-item>
+        <ion-label position="floating">channel</ion-label>
+        <ion-input
+         type="text"
+          [(ngModel)]="channel"
+          (ionFocus)="showerrurjoin =false"
+          ></ion-input>
+
+        <ion-label
+          style="color: #c94c4c; padding-top: 0.2rem"
+          *ngIf="showerrurjoin && channel.length < 10"
+        >
+        channel is required
+        </ion-label>
+      </ion-item>
+      
+      <ion-button shape="round" expand="full" (click)="joinRoom()">Confirm</ion-button>
+      
+    </ion-content>
+    
+  
+  </ng-template>
+</ion-modal>
+
+
+
+<ion-modal [isOpen]="isModalOpenError" id="mod">
+  <ng-template>
+    <ion-card>
+      <ion-img
+        alt="Silhouette of mountains"
+        src="assets/img/warning.png"
+      ></ion-img>
+      <ion-card-header>
+        <ion-card-title>Something Wrong</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{Alertmessage}}
+      </ion-card-content>
+
+      <ion-button (click)="setOpenError(false)">Try Again</ion-button>
+    </ion-card>
+  </ng-template>
+</ion-modal>
+
+
+<ion-modal [isOpen]="isModalOpenToken" id="mod">
+  <ng-template>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Copy your link</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button (click)="copyToClipboard()"  style="--background: #9b249785;--border-radius: 0px;">
+          {{ lien }}
+          <ion-icon name="copy-outline"></ion-icon>
+        </ion-button>
+        
+      </ion-card-content>
+      
+        <ion-button (click)="goTomeet()">Go to the meet</ion-button>
+      
+    </ion-card>
+  </ng-template>
+</ion-modal>

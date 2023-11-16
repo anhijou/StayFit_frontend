@@ -1,0 +1,220 @@
+<ion-content scroll-y="false" [fullscreen]="true">
+  <ion-text id="title">
+    <h5></h5>
+  </ion-text>
+
+  <ion-avatar class="avatarplace">
+    <img
+      alt="img"
+      [src]="datauserprofileimage.profile_image"
+      (load)="isLoadingImage = false"
+      (error)="isLoadingImage = false"
+      [hidden]="isLoadingImage"
+    />
+    <ion-spinner *ngIf="isLoadingImage"></ion-spinner>
+  </ion-avatar>
+  <ion-item id="item">
+    <ion-text id="title">{{name}}</ion-text>
+  </ion-item>
+
+  <ion-item class="item1" routerLink="../editprofile">
+    <ion-icon name="person-outline" slot="start"></ion-icon>
+    Edit Profile
+  </ion-item>
+
+  <ion-item class="item1" routerLink="../progress">
+    <ion-icon name="analytics" slot="start"></ion-icon>
+    Progress
+  </ion-item>
+
+  <ion-item class="item1" (click)="setOpenPrivacy(true)">
+    <ion-icon name="lock-closed" slot="start"></ion-icon>
+    Privacy Policy
+  </ion-item>
+  <ion-item class="item1" (click)="setOpenHelp(true)">
+    <ion-icon name="help-circle" slot="start"></ion-icon>
+    Help
+  </ion-item>
+
+  <ion-item id="itemlogout" (click)="logout()">
+    <ion-icon name="log-out" slot="start"></ion-icon>
+    Log Out
+  </ion-item>
+  <ion-tabs class="tabs">
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          routerLink="../dashboard"
+          src="assets/icon/home.png"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          src="assets/icon/chart.png"
+          routerLink="../progress"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          src="assets/icon/Deadlift.png"
+          routerLink="../workouts"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-img
+          class="img1"
+          routerLink="../profile"
+          src="assets/icon/profile.png"
+          alt="Progress"
+        ></ion-img>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
+
+<ion-modal id="mod" [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar class="help-title">
+        <ion-title>Help</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpenHelp(false)">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <p class="help-paragraphe"></p>
+      <h2 class="help-paragraphe-inside">Welcome to Fitness App!</h2>
+      <p class="help-paragraphe-inside">
+        Thank you for choosing our fitness app. Here are some instructions to
+        help you get started:
+      </p>
+      <ol class="help-paragraphe-inside">
+        <li>Sign up or log in to your account.</li>
+        <li>Explore the different features and sections of the app.</li>
+        <li>Track your workouts, set goals, and monitor your progress.</li>
+        <li>
+          Access exercise routines and training plans tailored to your fitness
+          level.
+        </li>
+        <li>Stay motivated with personalized challenges and achievements.</li>
+        <li>Join communities and connect with other fitness enthusiasts.</li>
+      </ol>
+      <p class="help-paragraphe-inside">
+        If you have any questions, feedback, or need assistance, please feel
+        free to contact us at
+        <a href="mailto:your-email@example.com">your-email@example.com</a>.
+      </p>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-modal id="mod" [isOpen]="isPrivacyPolicyOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Privacy Policy</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpenPrivacy(false)">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="modal-content" [fullscreen]="true">
+      <h2 class="help-paragraphe-top">Privacy Policy</h2>
+      <p class="help-paragraphe-inside">
+        At Fitness App, we take your privacy seriously. This Privacy Policy
+        explains how we collect, use, and protect your personal information.
+      </p>
+      <p class="help-paragraphe-inside">
+        <strong>1. Information We Collect</strong>
+        <br />
+        We may collect various types of information when you use our app,
+        including: - Personal information provided during account registration.
+        - Health and fitness data entered or synced with the app. - Usage
+        information such as app interactions and analytics.
+      </p>
+      <p class="help-paragraphe-inside">
+        <strong>2. Use of Information</strong>
+        <br />
+        We use the collected information to provide and improve our services,
+        personalize your experience, analyze usage patterns, and communicate
+        with you.
+      </p>
+      <p class="help-paragraphe-inside">
+        <strong>3. Data Security</strong>
+        <br />
+        We implement industry-standard security measures to protect your
+        information from unauthorized access, loss, or alteration. However,
+        please note that no method of transmission over the internet or
+        electronic storage is 100% secure.
+      </p>
+      <p class="help-paragraphe-inside">
+        <strong>4. Third-Party Services</strong>
+        <br />
+        We may use third-party services and analytics tools that have their own
+        privacy policies. We encourage you to review their policies and
+        practices.
+      </p>
+      <p class="help-paragraphe-inside">
+        If you have any questions or concerns about our privacy practices,
+        please contact us at
+        <a href="mailto:your-email@example.com">your-email@example.com</a>.
+      </p>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<!-- <ion-modal id="mod" [isOpen]="isPrivacyPolicyOpen">
+  <ng-template>
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title class="help-title">Privacy Policy</ion-title>
+        <ion-buttons  slot="end" >
+          <ion-button (click)="setOpenPrivacy(false)">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+ 
+    <ion-content>
+      <h2 class="help-paragraphe-inside">Privacy Policy</h2>
+      <p class="help-paragraphe-inside">
+        At Fitness App, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information.
+      </p>
+      <p class="help-paragraphe-inside">
+        <strong>1. Information We Collect</strong>
+        <br>
+        We may collect various types of information when you use our app, including:
+        - Personal information provided during account registration.
+        - Health and fitness data entered or synced with the app.
+        - Usage information such as app interactions and analytics.
+      </p>
+      <p class="help-paragraphe-inside">
+        <strong>2. Use of Information</strong>
+        <br>
+        We use the collected information to provide and improve our services, personalize your experience, analyze usage patterns, and communicate with you.
+      </p>
+      <p class="help-paragraphe-inside">
+        <strong>3. Data Security</strong>
+        <br>
+        We implement industry-standard security measures to protect your information from unauthorized access, loss, or alteration. However, please note that no method of transmission over the internet or electronic storage is 100% secure.
+      </p>
+      <p class="help-paragraphe-inside">
+        <strong>4. Third-Party Services</strong>
+        <br>
+        We may use third-party services and analytics tools that have their own privacy policies. We encourage you to review their policies and practices.
+      </p>
+      <p class="help-paragraphe-inside">
+        If you have any questions or concerns about our privacy practices, please contact us at <a href="mailto:your-email@example.com">your-email@example.com</a>.
+      </p>
+    </ion-content>
+
+  </ng-template>
+  
+</ion-modal> -->
